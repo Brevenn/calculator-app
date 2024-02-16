@@ -25,3 +25,25 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #ddd;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #eee;
+}
+button:active {
+  background-color: #ccc;
+}
