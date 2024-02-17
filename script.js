@@ -26,7 +26,13 @@ class Calculator {
 
   //Operation the user selects
   chooseOperation(operation) {
-
+    if (this.currentOperand === '') return
+    if (this.previousOperand !== '') {
+      this.compute()
+    }
+    this.operation = operation
+    this.previousOperand = this.currentOperand
+    this.currentOperand = ''
   }
 
   //computes single value on display
@@ -52,6 +58,7 @@ const currentOperandTextElement = document.querySelector('[data-current-operand]
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
+//number click
 numberButtons.forEach(button => {
   //event listener for button click
   button.addEventListener('click', () => {
@@ -60,4 +67,24 @@ numberButtons.forEach(button => {
     //dissplay updates as buttons are clicked
     calculator.updateDisplay()
   })
+})
+
+//operation click
+operationButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.chooseOperation(button.innerText)
+    calculator.updateDisplay()
+  })
+})
+
+//equals output
+equalsButton.addEventListener('click', button => {
+  calculator.compute()
+  calculator.updateDisplay()
+})
+
+//clear value click
+allClearButton.addEventListener('click', button => {
+  calculator.clear()
+  calculator.updateDisplay()
 })
