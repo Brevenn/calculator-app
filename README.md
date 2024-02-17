@@ -4,7 +4,7 @@
 
 ### About
 
-- 
+- **Hello! Here you can find a basic calculator application ustilizing fundamental javascript functions.**
 
 #
 
@@ -14,9 +14,11 @@
 
 #
 
-### Languages Used
+### Languages and Tech Used
 
--
+- [![Javascript]][javascript-url]
+- [![VSCode]][vscode-url]
+- [![Coolers]][coolers-url]
 
 #
 ### Author

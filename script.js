@@ -37,12 +37,39 @@ class Calculator {
 
   //computes single value on display
   compute() {
+    let computation
+    const prev = parseFloat(this.previousOperand)
+    const current = parseFloat(this.currentOperand)
+    if (isNaN(prev) || isNaN(current)) return
+    switch (this.operation) {
+      case '+':
+        computation = prev + current
+        break
+      case '-':
+        computation = prev - current
+        break
+      case '*': 
+        computation = prev * current
+        break
+      case '÷':
+        computation = prev / current
+        break
+      default:
+        return
+    }
+    this.currentOperand = computation
+    this.operation = undefined
+    this.previousOperand = ''
+  }
+
+  //pulls current diplay number
+  getDisplayNumber(number) {
 
   }
 
   //updates values inside of display
   updateDisplay() {
-    this.currentOperandTextElement.innerText = this.currentOperand
+
   }
 }
 
@@ -86,5 +113,11 @@ equalsButton.addEventListener('click', button => {
 //clear value click
 allClearButton.addEventListener('click', button => {
   calculator.clear()
+  calculator.updateDisplay()
+})
+
+//deletes current calue clicked
+deleteButton.addEventListener('click', button => {
+  calculator.delete()
   calculator.updateDisplay()
 })
